@@ -2,47 +2,79 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>APC Museum</title>
+<title>APC Digital Museum</title>
 
 <style>
 body{
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     margin:0;
-    background:#f4f4f4;
+    background:#e9ecef;
 }
 
 h1{
     text-align:center;
-    padding:20px;
+    padding:25px;
+    font-size:32px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#555;
+    margin-top:-10px;
 }
 
 .grid{
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap:20px;
-    padding:20px;
+    padding:25px;
 }
 
 .card{
     background:white;
-    padding:15px;
-    border-radius:12px;
-    text-align:center;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    margin:0;
+}
+
+.info{
+    font-size:14px;
+    color:#444;
+    margin-top:10px;
+    line-height:1.6;
+}
+
+.tag{
+    display:inline-block;
+    background:#222;
+    color:white;
+    padding:4px 10px;
+    border-radius:8px;
+    font-size:12px;
+    margin-top:10px;
 }
 
 a{
     display:inline-block;
-    margin-top:10px;
-    padding:10px 15px;
-    background:#222;
+    margin-top:15px;
+    padding:10px 14px;
+    background:#0077b6;
     color:white;
     text-decoration:none;
     border-radius:8px;
 }
 
 a:hover{
-    background:#444;
+    background:#023e8a;
 }
 </style>
 
@@ -51,19 +83,36 @@ a:hover{
 <body>
 
 <h1>🦴 APC Digital Fossil Museum</h1>
+<p class="subtitle">Scientific 3D Paleontology Archive</p>
 
 <div class="grid">
 
+<!-- APC 000001 -->
 <div class="card">
 <h2>APC-000001</h2>
-<p>Echinoid Specimen</p>
-<a href="pages/apc-000001.html">View 3D</a>
+<span class="tag">Echinoidea</span>
+
+<div class="info">
+Age: Cretaceous (Albian)<br>
+Location: Mount Lebanon (Hrajel area)<br>
+Environment: Shallow marine carbonate platform
 </div>
 
+<a href="pages/apc-000001.html">View 3D Model</a>
+</div>
+
+<!-- APC 000002 -->
 <div class="card">
 <h2>APC-000002</h2>
-<p>Echinoid Specimen</p>
-<a href="pages/apc-000002.html">View 3D</a>
+<span class="tag">Echinoidea</span>
+
+<div class="info">
+Age: Cretaceous (Albian)<br>
+Location: Mount Lebanon (Hrajel area)<br>
+Environment: Marine fossil layer
+</div>
+
+<a href="pages/apc-000002.html">View 3D Model</a>
 </div>
 
 </div>
