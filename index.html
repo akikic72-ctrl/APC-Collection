@@ -2,27 +2,35 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>APC Digital Museum</title>
+<title>APC Museum</title>
 
 <style>
 body{
-    font-family: Arial, sans-serif;
     margin:0;
-    background:#e9ecef;
+    font-family: Arial;
+    background:#0f0f0f;
+    color:white;
 }
 
-h1{
+/* Top Bar */
+.topbar{
+    background:#111;
+    padding:20px;
     text-align:center;
-    padding:25px;
-    font-size:32px;
+    border-bottom:1px solid #222;
 }
 
-.subtitle{
-    text-align:center;
-    color:#555;
-    margin-top:-10px;
+.topbar h1{
+    margin:0;
+    font-size:28px;
 }
 
+.topbar p{
+    margin:5px 0 0;
+    color:#aaa;
+}
+
+/* Grid */
 .grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -30,55 +38,46 @@ h1{
     padding:25px;
 }
 
+/* Card */
 .card{
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 6px 18px rgba(0,0,0,0.1);
+    background:#1a1a1a;
+    border-radius:12px;
+    overflow:hidden;
     transition:0.3s;
+    border:1px solid #222;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 }
 
-.card h2{transition:0.3s;
-cursor:pointer;
-    margin:0;
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
 }
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 12px 30px rgba(0,0,0,.25);
-}
-.info{
-    font-size:14px;
-    color:#444;
-    margin-top:10px;
-    line-height:1.6;
+
+.content{
+    padding:15px;
 }
 
 .tag{
     display:inline-block;
-    background:#222;
-    color:white;
     padding:4px 10px;
+    background:#0077b6;
     border-radius:8px;
     font-size:12px;
-    margin-top:10px;
+    margin-bottom:10px;
 }
 
 a{
     display:inline-block;
-    margin-top:15px;
-    padding:10px 14px;
+    margin-top:10px;
+    padding:10px 12px;
     background:#0077b6;
     color:white;
     text-decoration:none;
     border-radius:8px;
-}
-
-a:hover{
-    background:#023e8a;
 }
 </style>
 
@@ -86,53 +85,35 @@ a:hover{
 
 <body>
 
-<h1>🦴 APC Digital Fossil Museum</h1>
-<p class="subtitle">Scientific 3D Paleontology Archive</p>
+<div class="topbar">
+<h1>🏛️ APC Digital Fossil Museum</h1>
+<p>Scientific Collection of Lebanese Fossils</p>
+</div>
 
 <div class="grid">
 
 <!-- APC 000001 -->
 <div class="card">
+<img src="images/apc-000001.jpg">
 
-<a href="pages/apc-000001.html">
-<img src="images/apc-000001.jpg"
-style="width:100%; height:250px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
-</a>
-<h2>APC-000001</h2>
-
+<div class="content">
 <span class="tag">Echinoidea</span>
 <h2>APC-000001</h2>
-<span class="tag">Echinoidea</span>
-
-<div class="info">
-Age: Cretaceous (Albian)<br>
-Location: Mount Lebanon (Hrajel area)<br>
-Environment: Shallow marine carbonate platform
+<p>Cretaceous fossil from Hrajel</p>
+<a href="pages/apc-000001.html">View Specimen</a>
 </div>
-
-<a href="pages/apc-000001.html">View 3D Model</a>
 </div>
 
 <!-- APC 000002 -->
 <div class="card">
+<img src="images/apc-000002.jpg">
 
-<a href="pages/apc-000002.html">
-<img src="images/apc-000002.jpg"
-style="width:100%; height:250px; object-fit:cover; border-radius:10px; margin-bottom:15px;">
-</a>
-<h2>APC-000002</h2>
-
+<div class="content">
 <span class="tag">Echinoidea</span>
 <h2>APC-000002</h2>
-<span class="tag">Echinoidea</span>
-
-<div class="info">
-Age: Cretaceous (Albian)<br>
-Location: Mount Lebanon (Hrajel area)<br>
-Environment: Marine fossil layer
+<p>Cretaceous fossil from Hrajel</p>
+<a href="pages/apc-000002.html">View Specimen</a>
 </div>
-
-<a href="pages/apc-000002.html">View 3D Model</a>
 </div>
 
 </div>
