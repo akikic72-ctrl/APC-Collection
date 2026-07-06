@@ -12,25 +12,36 @@ body{
     color:white;
 }
 
-/* Top Bar */
 .topbar{
-    background:#111;
-    padding:20px;
     text-align:center;
+    padding:20px;
+    background:#111;
     border-bottom:1px solid #222;
 }
 
 .topbar h1{
     margin:0;
-    font-size:28px;
 }
 
-.topbar p{
-    margin:5px 0 0;
-    color:#aaa;
+.filters{
+    text-align:center;
+    padding:15px;
 }
 
-/* Grid */
+button{
+    margin:5px;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:#0077b6;
+    color:white;
+}
+
+button:hover{
+    background:#023e8a;
+}
+
 .grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -38,13 +49,11 @@ body{
     padding:25px;
 }
 
-/* Card */
 .card{
     background:#1a1a1a;
     border-radius:12px;
     overflow:hidden;
     transition:0.3s;
-    border:1px solid #222;
 }
 
 .card:hover{
@@ -90,33 +99,56 @@ a{
 <p>Scientific Collection of Lebanese Fossils</p>
 </div>
 
+<div class="filters">
+<button onclick="filter('all')">All</button>
+<button onclick="filter('echino')">Echinoidea</button>
+<button onclick="filter('gastropod')">Gastropoda</button>
+<button onclick="filter('bivalve')">Bivalvia</button>
+</div>
+
 <div class="grid">
 
 <!-- APC 000001 -->
-<div class="card">
+<div class="card echino">
 <img src="images/apc-000001.jpg">
-
 <div class="content">
 <span class="tag">Echinoidea</span>
 <h2>APC-000001</h2>
-<p>Cretaceous fossil from Hrajel</p>
+<p>Cretaceous fossil</p>
 <a href="pages/apc-000001.html">View Specimen</a>
 </div>
 </div>
 
 <!-- APC 000002 -->
-<div class="card">
+<div class="card echino">
 <img src="images/apc-000002.jpg">
-
 <div class="content">
 <span class="tag">Echinoidea</span>
 <h2>APC-000002</h2>
-<p>Cretaceous fossil from Hrajel</p>
+<p>Cretaceous fossil</p>
 <a href="pages/apc-000002.html">View Specimen</a>
 </div>
 </div>
 
 </div>
+
+<script>
+function filter(type){
+    let cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        if(type === 'all'){
+            card.style.display = 'block';
+        }
+        else if(card.classList.contains(type)){
+            card.style.display = 'block';
+        }
+        else{
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
 
 </body>
 </html>
