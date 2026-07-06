@@ -1,0 +1,16 @@
+[
+  {
+    "id": "APC-000001",
+    "type": "echinoid",
+    "name": "Sea Urchin Fossil",
+    "image": "images/apc-000001.jpg",
+    "page": "pages/apc-000001.html"
+  },
+  {
+    "id": "APC-000002",
+    "type": "echinoid",
+    "name": "Sea Urchin Fossil",
+    "image": "images/apc-000002.jpg",
+    "page": "pages/apc-000002.html"
+  }
+]
