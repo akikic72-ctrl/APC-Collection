@@ -2,61 +2,60 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>APC-000001 Scientific Record</title>
+<title>APC-000001</title>
 
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
-body{<div>
-<a href="../index.html"
-style="display:inline-block;padding:10px 15px;background:#0077b6;color:white;text-decoration:none;border-radius:8px;margin:10px;">
-⬅ Back to Museum
-</a>
-</div>
+body{
     margin:0;
     font-family: Arial;
     background:#111;
     color:white;
 }
-<a href="../index.html"
-style="
-display:inline-block;
-margin:15px;
-padding:10px 15px;
-background:#0077b6;
-color:white;
-text-decoration:none;
-border-radius:8px;
-">
-⬅ Back to Museum
-</a>
+
+/* زر الرجوع */
+.topbar{
+    padding:10px;
+}
+
+.back{
+    display:inline-block;
+    padding:10px 15px;
+    background:#0077b6;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+/* العنوان */
 .header{
     text-align:center;
-    padding:20px;
-    background:#1e1e1e;
+    padding:10px 20px;
 }
 
-.info{
-    padding:20px;
-    max-width:800px;
-    margin:auto;
-    background:#222;
-    border-radius:12px;
-    margin-top:20px;
+.tag{
+    background:#0077b6;
+    padding:5px 10px;
+    border-radius:8px;
+    font-size:12px;
 }
 
+/* 3D viewer */
 model-viewer{
     width:100%;
     height:600px;
     background:#000;
 }
 
-.tag{
-    display:inline-block;
-    background:#0077b6;
-    padding:5px 10px;
-    border-radius:8px;
-    font-size:12px;
+/* المعلومات */
+.info{
+    max-width:800px;
+    margin:20px auto;
+    background:#222;
+    padding:20px;
+    border-radius:12px;
+    line-height:1.6;
 }
 </style>
 
@@ -64,36 +63,36 @@ model-viewer{
 
 <body>
 
-<div class="header">
-<h1>🦴 APC-000001</h1>
-    <p style="color:#aaa; text-align:center;">
-APC Digital Fossil Museum Record
-</p>
-<span class="tag">Echinoidea (Sea Urchin Fossil)</span>
+<!-- زر الرجوع -->
+<div class="topbar">
+<a class="back" href="../index.html">⬅ Back to Museum</a>
 </div>
 
+<!-- العنوان -->
+<div class="header">
+<h1>🦴 APC-000001</h1>
+<span class="tag">Echinoidea (Sea Urchin Fossil)</span>
+<p style="color:#aaa;">APC Scientific Record</p>
+</div>
+
+<!-- 3D MODEL -->
 <model-viewer
 src="../Models/apc-000001.glb"
 camera-controls
 auto-rotate
-shadow-intensity="1"
-style="background:#000">
+shadow-intensity="1">
 </model-viewer>
 
-<div class="info" style="display:block; padding:20px; background:#222; color:white; border-radius:12px; margin-top:20px;">
+<!-- معلومات علمية -->
+<div class="info">
 <h2>Scientific Data</h2>
 
-<p>
 <b>Age:</b> Cretaceous (Albian)<br><br>
-
 <b>Location:</b> Hrajel, Mount Lebanon<br><br>
-
-<b>Formation:</b> Albian marine limestone layers (Jezzinian sequence)<br><br>
-
+<b>Formation:</b> Albian marine limestone layers<br><br>
 <b>Paleoenvironment:</b> Shallow warm marine platform<br><br>
+<b>Notes:</b> Well-preserved echinoid fossil from Lebanon fossil sites.
 
-<b>Notes:</b> Well-preserved echinoid test, typical of high-energy carbonate environments.
-</p>
 </div>
 
 </body>
