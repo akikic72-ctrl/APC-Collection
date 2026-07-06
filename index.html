@@ -16,7 +16,6 @@ body{
     text-align:center;
     padding:20px;
     background:#111;
-    border-bottom:1px solid #222;
 }
 
 .filters{
@@ -29,13 +28,9 @@ button{
     padding:10px 15px;
     border:none;
     border-radius:8px;
-    cursor:pointer;
     background:#0077b6;
     color:white;
-}
-
-button:hover{
-    background:#023e8a;
+    cursor:pointer;
 }
 
 .grid{
@@ -49,11 +44,7 @@ button:hover{
     background:#1a1a1a;
     border-radius:12px;
     overflow:hidden;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-6px);
+    padding-bottom:10px;
 }
 
 .card img{
@@ -63,22 +54,13 @@ button:hover{
 }
 
 .content{
-    padding:15px;
-}
-
-.tag{
-    display:inline-block;
-    padding:4px 10px;
-    background:#0077b6;
-    border-radius:8px;
-    font-size:12px;
-    margin-bottom:10px;
+    padding:10px;
 }
 
 a{
     display:inline-block;
     margin-top:10px;
-    padding:10px 12px;
+    padding:10px;
     background:#0077b6;
     color:white;
     text-decoration:none;
@@ -91,71 +73,53 @@ a{
 <body>
 
 <div class="topbar">
-<h1>🏛️ APC Digital Fossil Museum</h1>
-<p>Lebanese Fossil Scientific Database</p>
+<h1>🏛️ APC Digital Museum</h1>
+<p>Database Driven Fossil Collection</p>
 </div>
 
 <div class="filters">
 <button onclick="filter('all')">All</button>
 <button onclick="filter('echinoid')">Echinoids</button>
-<button onclick="filter('gastropod')">Gastropods</button>
-<button onclick="filter('bivalve')">Bivalves</button>
-<button onclick="filter('amber')">Amber</button>
-<button onclick="filter('plant')">Plants</button>
-<button onclick="filter('wood')">Wood</button>
 </div>
 
-<div class="grid">
-<!-- TEMPLATE: COPY THIS TO ADD NEW FOSSIL -->
-<!--
-<div class="card echinoid">
-<img src="images/FILE_NAME.jpg">
-<div class="content">
-<span class="tag">TYPE</span>
-<h2>APC-XXXXXX</h2>
-<a href="pages/FILE.html">View Specimen</a>
-</div>
-</div>
--->
-
-<!-- APC 000001 -->
-<div class="card echinoid">
-<img src="images/apc-000001.jpg">
-<div class="content">
-<span class="tag">Echinoidea</span>
-<h2>APC-000001</h2>
-<a href="pages/apc-000001.html">View Specimen</a>
-</div>
-</div>
-
-<!-- APC 000002 -->
-<div class="card echinoid">
-<img src="images/apc-000002.jpg">
-<div class="content">
-<span class="tag">Echinoidea</span>
-<h2>APC-000002</h2>
-<a href="pages/apc-000002.html">View Specimen</a>
-</div>
-</div>
-
-</div>
+<div class="grid" id="grid"></div>
 
 <script>
-function filter(type){
-    let cards = document.querySelectorAll('.card');
 
-    cards.forEach(card => {
-        if(type === 'all'){
-            card.style.display = 'block';
-        }
-        else if(card.classList.contains(type)){
-            card.style.display = 'block';
-        }
-        else{
-            card.style.display = 'none';
-        }
+// تحميل البيانات من JSON
+fetch('data/fossils.json')
+.then(res => res.json())
+.then(data => {
+    window.fossils = data;
+    render(data);
+});
+
+function render(data){
+    let grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    data.forEach(f => {
+        grid.innerHTML += `
+        <div class="card ${f.type}">
+            <img src="${f.image}">
+            <div class="content">
+                <h2>${f.id}</h2>
+                <p>${f.name}</p>
+                <a href="${f.page}">View Specimen</a>
+            </div>
+        </div>
+        `;
     });
 }
+
+function filter(type){
+    if(type === 'all'){
+        render(window.fossils);
+    } else {
+        render(window.fossils.filter(f => f.type === type));
+    }
+}
+
 </script>
 
 </body>
