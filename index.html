@@ -2,36 +2,43 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>APC Collection</title>
+<title>APC Museum</title>
 
 <style>
 body{
     font-family: Arial;
     margin:0;
     background:#f4f4f4;
-    text-align:center;
 }
 
 h1{
+    text-align:center;
     padding:20px;
 }
 
-.container{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-    margin-top:30px;
+.grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
 }
 
 a{
     display:inline-block;
-    padding:15px;
+    margin-top:10px;
+    padding:10px 15px;
     background:#222;
     color:white;
     text-decoration:none;
-    width:200px;
-    margin:auto;
-    border-radius:10px;
+    border-radius:8px;
 }
 
 a:hover{
@@ -43,14 +50,23 @@ a:hover{
 
 <body>
 
-<h1>APC Fossil Collection</h1>
-<p>Click on a specimen</p>
+<h1>🦴 APC Digital Fossil Museum</h1>
 
-<div class="container">
+<div class="grid">
 
-<a href="pages/apc-000001.html">APC-000001</a>
+<div class="card">
+<h2>APC-000001</h2>
+<p>Echinoid Specimen</p>
+<a href="pages/apc-000001.html">View 3D</a>
+</div>
+
+<div class="card">
+<h2>APC-000002</h2>
+<p>Echinoid Specimen</p>
+<a href="pages/apc-000002.html">View 3D</a>
+</div>
 
 </div>
 
 </body>
-</html><a href="pages/apc-000002.html">APC-000002</a>
+</html>
