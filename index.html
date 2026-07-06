@@ -19,10 +19,6 @@ body{
     border-bottom:1px solid #222;
 }
 
-.topbar h1{
-    margin:0;
-}
-
 .filters{
     text-align:center;
     padding:15px;
@@ -96,36 +92,37 @@ a{
 
 <div class="topbar">
 <h1>🏛️ APC Digital Fossil Museum</h1>
-<p>Scientific Collection of Lebanese Fossils</p>
+<p>Lebanese Fossil Scientific Database</p>
 </div>
 
 <div class="filters">
 <button onclick="filter('all')">All</button>
-<button onclick="filter('echino')">Echinoidea</button>
-<button onclick="filter('gastropod')">Gastropoda</button>
-<button onclick="filter('bivalve')">Bivalvia</button>
+<button onclick="filter('echinoid')">Echinoids</button>
+<button onclick="filter('gastropod')">Gastropods</button>
+<button onclick="filter('bivalve')">Bivalves</button>
+<button onclick="filter('amber')">Amber</button>
+<button onclick="filter('plant')">Plants</button>
+<button onclick="filter('wood')">Wood</button>
 </div>
 
 <div class="grid">
 
 <!-- APC 000001 -->
-<div class="card echino">
+<div class="card echinoid">
 <img src="images/apc-000001.jpg">
 <div class="content">
 <span class="tag">Echinoidea</span>
 <h2>APC-000001</h2>
-<p>Cretaceous fossil</p>
 <a href="pages/apc-000001.html">View Specimen</a>
 </div>
 </div>
 
 <!-- APC 000002 -->
-<div class="card echino">
+<div class="card echinoid">
 <img src="images/apc-000002.jpg">
 <div class="content">
 <span class="tag">Echinoidea</span>
 <h2>APC-000002</h2>
-<p>Cretaceous fossil</p>
 <a href="pages/apc-000002.html">View Specimen</a>
 </div>
 </div>
