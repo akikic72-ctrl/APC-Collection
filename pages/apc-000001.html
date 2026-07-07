@@ -7,75 +7,101 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
 <style>
+
 body{
-    margin:0;
-    font-family: Arial;
-    background:#111;
-    color:white;
+margin:0;
+font-family:Arial;
+background:#111;
+color:white;
 }
 
-/* زر الرجوع */
-.topbar{
-    padding:10px;
+.header{
+background:#1a1a1a;
+padding:20px;
+text-align:center;
 }
 
 .back{
-    display:inline-block;
-    padding:10px 15px;
-    background:#0077b6;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
+display:inline-block;
+margin-top:10px;
+padding:10px 18px;
+background:#0077b6;
+color:white;
+text-decoration:none;
+border-radius:8px;
 }
 
-/* العنوان */
-.header{
-    text-align:center;
-    padding:10px 20px;
+.container{
+max-width:1200px;
+margin:auto;
+padding:25px;
 }
 
-.tag{
-    background:#0077b6;
-    padding:5px 10px;
-    border-radius:8px;
-    font-size:12px;
-}
-
-/* 3D viewer */
 model-viewer{
-    width:100%;
-    height:600px;
-    background:#000;
+width:100%;
+height:600px;
+background:#000;
+border-radius:12px;
 }
 
-/* المعلومات */
-.info{
-    max-width:800px;
-    margin:20px auto;
-    background:#222;
-    padding:20px;
-    border-radius:12px;
-    line-height:1.6;
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:25px;
+background:#1b1b1b;
 }
+
+th{
+background:#0077b6;
+padding:12px;
+text-align:left;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #333;
+}
+
+.gallery{
+display:flex;
+gap:15px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.gallery img{
+width:250px;
+border-radius:10px;
+}
+
+.notes{
+margin-top:30px;
+padding:20px;
+background:#1b1b1b;
+border-radius:10px;
+line-height:1.7;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<!-- زر الرجوع -->
-<div class="topbar">
-<a class="back" href="../index.html">⬅ Back to Museum</a>
-</div>
-
-<!-- العنوان -->
 <div class="header">
-<h1>🦴 APC-000001</h1>
-<span class="tag">Echinoidea (Sea Urchin Fossil)</span>
-<p style="color:#aaa;">APC Scientific Record</p>
+
+<h1>APC-000001</h1>
+
+<p>Digital Fossil Record</p>
+
+<a class="back" href="../index.html">
+⬅ Back to Museum
+</a>
+
 </div>
 
-<!-- 3D MODEL -->
+<div class="container">
+
 <model-viewer
 src="../Models/apc-000001.glb"
 camera-controls
@@ -83,15 +109,89 @@ auto-rotate
 shadow-intensity="1">
 </model-viewer>
 
-<!-- معلومات علمية -->
-<div class="info">
-<h2>Scientific Data</h2>
+<table>
 
-<b>Age:</b> Cretaceous (Albian)<br><br>
-<b>Location:</b> Hrajel, Mount Lebanon<br><br>
-<b>Formation:</b> Albian marine limestone layers<br><br>
-<b>Paleoenvironment:</b> Shallow warm marine platform<br><br>
-<b>Notes:</b> Well-preserved echinoid fossil from Lebanon fossil sites.
+<tr><th colspan="2">Scientific Information</th></tr>
+
+<tr>
+<td>APC Number</td>
+<td>APC-000001</td>
+</tr>
+
+<tr>
+<td>Scientific Name</td>
+<td>Heteraster oblongus</td>
+</tr>
+
+<tr>
+<td>Kingdom</td>
+<td>Animalia</td>
+</tr>
+
+<tr>
+<td>Phylum</td>
+<td>Echinodermata</td>
+</tr>
+
+<tr>
+<td>Class</td>
+<td>Echinoidea</td>
+</tr>
+
+<tr>
+<td>Order</td>
+<td>Spatangoida</td>
+</tr>
+
+<tr>
+<td>Family</td>
+<td>Toxasteridae</td>
+</tr>
+
+<tr>
+<td>Formation</td>
+<td>Albian Formation</td>
+</tr>
+
+<tr>
+<td>Geological Age</td>
+<td>Early Cretaceous (Albian)</td>
+</tr>
+
+<tr>
+<td>Locality</td>
+<td>Hrajel, Mount Lebanon</td>
+</tr>
+
+<tr>
+<td>Paleoenvironment</td>
+<td>Shallow Marine Platform</td>
+</tr>
+
+<tr>
+<td>Preservation</td>
+<td>Excellent</td>
+</tr>
+
+</table>
+
+<div class="gallery">
+
+<img src="../images/apc-000001.jpg">
+
+</div>
+
+<div class="notes">
+
+<h2>Description</h2>
+
+<p>
+
+Well-preserved fossil echinoid collected from Albian marine deposits in Hrajel, Mount Lebanon. The specimen is digitally archived using a 3D model for scientific documentation.
+
+</p>
+
+</div>
 
 </div>
 
