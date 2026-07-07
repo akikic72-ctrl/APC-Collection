@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <title>APC Museum</title>
 
 <style>
+
 body{
     margin:0;
-    font-family: Arial;
+    font-family:Arial;
     background:#0f0f0f;
     color:white;
 }
@@ -37,45 +39,77 @@ button:hover{
     background:#023e8a;
 }
 
-.search-box{
+
+.stats{
+
     text-align:center;
-    margin:10px;
+    background:#151515;
+    margin:15px;
+    padding:15px;
+    border-radius:10px;
+
 }
 
+
+.search-box{
+
+    text-align:center;
+    margin:15px;
+
+}
+
+
 .search-box input{
+
     width:320px;
     max-width:90%;
     padding:12px;
     border-radius:10px;
     border:none;
     font-size:16px;
+
 }
+
+
 
 .grid{
+
     display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:20px;
     padding:25px;
+
 }
 
+
 .card{
+
     background:#1a1a1a;
     border-radius:12px;
     overflow:hidden;
     padding-bottom:10px;
+
 }
 
+
 .card img{
+
     width:100%;
     height:220px;
     object-fit:cover;
+
 }
+
 
 .content{
+
     padding:10px;
+
 }
 
+
 a{
+
     display:inline-block;
     margin-top:10px;
     padding:10px;
@@ -83,126 +117,237 @@ a{
     color:white;
     text-decoration:none;
     border-radius:8px;
+
 }
+
+
 </style>
 
 </head>
 
+
 <body>
 
+
 <div class="topbar">
+
 <h1>🏛️ APC Digital Museum</h1>
+
 <p>Database Driven Fossil Collection</p>
+
 </div>
+
+
+
+<div class="stats">
+
+<h3>📊 Museum Statistics</h3>
+
+<p>
+Total Specimens:
+<b id="total">0</b>
+</p>
+
+
+<p>
+Categories:
+<b id="categories">0</b>
+</p>
+
+</div>
+
 
 
 <div class="filters">
-<button onclick="filter('all')">All</button>
-<button onclick="filter('echinoid')">Echinoids</button>
+
+<button onclick="filter('all')">
+All
+</button>
+
+
+<button onclick="filter('echinoid')">
+Echinoids
+</button>
+
+
 </div>
 
 
+
+
 <div class="search-box">
+
 <input 
 id="search"
 type="text"
 placeholder="Search fossil..."
 onkeyup="searchFossils()">
+
 </div>
+
+
 
 
 <div class="grid" id="grid"></div>
 
 
+
+
 <script>
 
-// تحميل البيانات من JSON
+
 fetch('data/fossils.json')
+
 .then(res => res.json())
+
 .then(data => {
-    window.fossils = data;
-    render(data);
+
+
+window.fossils = data;
+
+
+
+document.getElementById("total").innerHTML = data.length;
+
+
+
+let types = [...new Set(data.map(f => f.type))];
+
+
+document.getElementById("categories").innerHTML = types.length;
+
+
+
+render(data);
+
+
 });
+
+
+
 
 
 function render(data){
 
-    let grid = document.getElementById("grid");
 
-    grid.innerHTML = "";
+let grid = document.getElementById("grid");
 
-    data.forEach(f => {
 
-        grid.innerHTML += `
+grid.innerHTML="";
 
-        <div class="card ${f.type}">
 
-            <img src="${f.image}">
 
-            <div class="content">
+data.forEach(f => {
 
-                <h2>${f.id}</h2>
 
-                <p>${f.name}</p>
+grid.innerHTML += `
 
-                <a href="${f.page}">
-                View Specimen
-                </a>
 
-            </div>
+<div class="card ${f.type}">
 
-        </div>
 
-        `;
+<img src="${f.image}">
 
-    });
+
+<div class="content">
+
+
+<h2>${f.id}</h2>
+
+
+<p>${f.name}</p>
+
+
+<a href="${f.page}">
+View Specimen
+</a>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+});
+
 
 }
+
+
+
+
 
 
 
 function filter(type){
 
-    if(type === 'all'){
 
-        render(window.fossils);
+if(type === "all"){
 
-    } else {
 
-        render(
-        window.fossils.filter(f => f.type === type)
-        );
+render(window.fossils);
 
-    }
+
+}
+
+else{
+
+
+render(
+window.fossils.filter(f => f.type === type)
+);
+
+
+}
+
 
 }
 
 
 
-// البحث
+
+
+
+
+
 function searchFossils(){
 
-    let text = document
-    .getElementById("search")
-    .value
-    .toLowerCase();
+
+let text = document
+.getElementById("search")
+.value
+.toLowerCase();
 
 
-    let result = window.fossils.filter(f =>
 
-        f.id.toLowerCase().includes(text) ||
-
-        f.name.toLowerCase().includes(text)
-
-    );
+let result = window.fossils.filter(f =>
 
 
-    render(result);
+f.id.toLowerCase().includes(text)
+
+||
+
+f.name.toLowerCase().includes(text)
+
+
+);
+
+
+
+render(result);
+
 
 }
+
 
 
 </script>
+
+
 
 </body>
 </html>
