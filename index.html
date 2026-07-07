@@ -33,6 +33,24 @@ button{
     cursor:pointer;
 }
 
+button:hover{
+    background:#023e8a;
+}
+
+.search-box{
+    text-align:center;
+    margin:10px;
+}
+
+.search-box input{
+    width:320px;
+    max-width:90%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    font-size:16px;
+}
+
 .grid{
     display:grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -77,12 +95,24 @@ a{
 <p>Database Driven Fossil Collection</p>
 </div>
 
+
 <div class="filters">
 <button onclick="filter('all')">All</button>
 <button onclick="filter('echinoid')">Echinoids</button>
 </div>
 
+
+<div class="search-box">
+<input 
+id="search"
+type="text"
+placeholder="Search fossil..."
+onkeyup="searchFossils()">
+</div>
+
+
 <div class="grid" id="grid"></div>
+
 
 <script>
 
@@ -94,31 +124,83 @@ fetch('data/fossils.json')
     render(data);
 });
 
+
 function render(data){
+
     let grid = document.getElementById("grid");
+
     grid.innerHTML = "";
 
     data.forEach(f => {
+
         grid.innerHTML += `
+
         <div class="card ${f.type}">
+
             <img src="${f.image}">
+
             <div class="content">
+
                 <h2>${f.id}</h2>
+
                 <p>${f.name}</p>
-                <a href="${f.page}">View Specimen</a>
+
+                <a href="${f.page}">
+                View Specimen
+                </a>
+
             </div>
+
         </div>
+
         `;
+
     });
+
 }
 
+
+
 function filter(type){
+
     if(type === 'all'){
+
         render(window.fossils);
+
     } else {
-        render(window.fossils.filter(f => f.type === type));
+
+        render(
+        window.fossils.filter(f => f.type === type)
+        );
+
     }
+
 }
+
+
+
+// البحث
+function searchFossils(){
+
+    let text = document
+    .getElementById("search")
+    .value
+    .toLowerCase();
+
+
+    let result = window.fossils.filter(f =>
+
+        f.id.toLowerCase().includes(text) ||
+
+        f.name.toLowerCase().includes(text)
+
+    );
+
+
+    render(result);
+
+}
+
 
 </script>
 
